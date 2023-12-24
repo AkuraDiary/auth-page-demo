@@ -42,8 +42,11 @@ class _TextInputFieldState extends State<TextInputField> {
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       decoration: InputDecoration(
-        suffixIcon: widget.isPassword ? Icon(
-          isVisible ? Icons.visibility : Icons.visibility_off
+        suffixIcon: widget.isPassword ? GestureDetector(
+          onTap: onToogleVisibility,
+          child: Icon(
+            isVisible ? Icons.visibility : Icons.visibility_off
+          ),
         )  : null,
         hintText: widget.hintText,
         enabledBorder: OutlineInputBorder(
