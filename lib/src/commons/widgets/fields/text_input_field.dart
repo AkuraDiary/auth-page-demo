@@ -28,11 +28,11 @@ class TextInputField extends StatefulWidget {
 }
 
 class _TextInputFieldState extends State<TextInputField> {
-  bool isVisible = false;
+  bool _isVisible = false;
 
   void onToogleVisibility() {
     setState(() {
-      isVisible = !isVisible;
+      _isVisible = !_isVisible;
     });
   }
 
@@ -45,7 +45,7 @@ class _TextInputFieldState extends State<TextInputField> {
         suffixIcon: widget.isPassword ? GestureDetector(
           onTap: onToogleVisibility,
           child: Icon(
-            isVisible ? Icons.visibility : Icons.visibility_off
+            _isVisible ? Icons.visibility : Icons.visibility_off
           ),
         )  : null,
         hintText: widget.hintText,
@@ -79,7 +79,7 @@ class _TextInputFieldState extends State<TextInputField> {
             Theme.of(context).colorScheme.inversePrimary.withOpacity(0.4),
         contentPadding: const EdgeInsets.all(16),
       ),
-      obscureText: widget.isPassword && !isVisible,
+      obscureText: widget.isPassword && !_isVisible,
       validator: widget.validator,
     );
   }
